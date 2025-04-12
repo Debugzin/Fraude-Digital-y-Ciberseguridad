@@ -14,10 +14,10 @@ y_pred_if = df["Isolation Forest Prediction"].replace(-1, 0).values
 y_pred_svm = df["One-Class SVM Prediction"].replace(-1, 0).values
 
 # Verificar clases
-print("🧾 Clases únicas - isFraud:", set(y_true))
-print("🧾 Clases únicas - Autoencoder:", set(y_pred_auto))
-print("🧾 Clases únicas - Isolation Forest:", set(y_pred_if))
-print("🧾 Clases únicas - One-Class SVM:", set(y_pred_svm))
+print("Clases únicas - isFraud:", set(y_true))
+print("Clases únicas - Autoencoder:", set(y_pred_auto))
+print("Clases únicas - Isolation Forest:", set(y_pred_if))
+print("Clases únicas - One-Class SVM:", set(y_pred_svm))
 
 # Diccionario con todos los modelos
 modelos = {
@@ -26,7 +26,7 @@ modelos = {
     "One-Class SVM": y_pred_svm
 }
 
-# 1️⃣ MATRICES DE CONFUSIÓN
+# MATRICES DE CONFUSIÓN
 plt.figure(figsize=(18, 5))
 for i, (nombre, pred) in enumerate(modelos.items()):
     cm = confusion_matrix(y_true, pred)
@@ -39,7 +39,7 @@ for i, (nombre, pred) in enumerate(modelos.items()):
 plt.tight_layout()
 plt.show()
 
-# 2️⃣ CURVAS ROC + AUC
+#CURVAS ROC + AUC
 plt.figure(figsize=(8, 6))
 for nombre, pred in modelos.items():
     fpr, tpr, _ = roc_curve(y_true, pred)
@@ -54,7 +54,7 @@ plt.legend()
 plt.grid()
 plt.show()
 
-# 3️⃣ BARRAS APILADAS: TP, TN, FP, FN
+#BARRAS APILADAS: TP, TN, FP, FN
 metricas = {"TP": [], "TN": [], "FP": [], "FN": []}
 
 for nombre, pred in modelos.items():
@@ -66,7 +66,7 @@ for nombre, pred in modelos.items():
         metricas["FP"].append(fp)
         metricas["FN"].append(fn)
     else:
-        print(f"⚠️ Matriz no 2x2 para {nombre}, se omite.")
+        print(f"Matriz no 2x2 para {nombre}, se omite.")
 
 df_metricas = pd.DataFrame(metricas, index=list(modelos.keys()))
 
@@ -79,7 +79,7 @@ plt.legend(title="Métrica")
 plt.tight_layout()
 plt.show()
 
-# 4️⃣ DIAGRAMA DE DISPERSIÓN: Predicciones vs isFraud
+#DIAGRAMA DE DISPERSIÓN: Predicciones vs isFraud
 # Reemplazar el gráfico de dispersión por gráfico de barras más útil:
 resultados = {
     "Modelo": [],
