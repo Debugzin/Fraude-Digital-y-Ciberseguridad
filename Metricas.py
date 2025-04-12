@@ -5,7 +5,7 @@ import seaborn as sns
 from sklearn.metrics import confusion_matrix, roc_curve, auc
 
 # Cargar el archivo Excel
-df = pd.read_excel("C:/Users/AGUSTIN LUJAN/Desktop/resultados_modelos.xlsx")  # Ajustá la ruta si es necesario
+df = pd.read_excel("C/RUTA")  # Ajustá la ruta si es necesario
 
 # Obtener los datos
 y_true = df["isFraud"].values
