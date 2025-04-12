@@ -81,25 +81,25 @@ plt.show()
 
 #DIAGRAMA DE DISPERSIÓN: Predicciones vs isFraud
 # Reemplazar el gráfico de dispersión por gráfico de barras más útil:
-resultados = {
-    "Modelo": [],
-    "Correctas": [],
-    "Incorrectas": []
-}
+#resultados = {
+#    "Modelo": [],
+#    "Correctas": [],
+#    "Incorrectas": []
+#}
 
-for nombre, pred in modelos.items():
-    correctas = (y_true == pred).sum()
-    incorrectas = (y_true != pred).sum()
+#for nombre, pred in modelos.items():
+#    correctas = (y_true == pred).sum()
+#    incorrectas = (y_true != pred).sum()
     
-    resultados["Modelo"].append(nombre)
-    resultados["Correctas"].append(correctas)
-    resultados["Incorrectas"].append(incorrectas)
+#    resultados["Modelo"].append(nombre)
+#    resultados["Correctas"].append(correctas)
+#    resultados["Incorrectas"].append(incorrectas)
 
-df_resultados = pd.DataFrame(resultados)
+#df_resultados = pd.DataFrame(resultados)
 
-df_resultados.set_index("Modelo").plot.bar(
-    stacked=True, color=['green', 'red'], figsize=(8, 6)
-)
+#df_resultados.set_index("Modelo").plot.bar(
+#    stacked=True, color=['green', 'red'], figsize=(8, 6)
+#)
 
 plt.title("Cantidad de predicciones correctas e incorrectas por modelo")
 plt.ylabel("Cantidad")
